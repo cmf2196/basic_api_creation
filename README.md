@@ -8,10 +8,16 @@ This is an assignment for my Columbia Univeristy Graduate course, Modern Data St
   *  Create a plumber api with an endpoint method resource named "subsetdata".  The api should use the post method to receive data.  Users should be able to post values of particular variables of the dataset to the api.  The api should then take the values the user posts and return data filtered to a subset of rows in the dataset that the end-user requests.  USE the iris dataset to build your api.  
 
 # Files 
-  *  
-  * 
-  * 
-  
+  *  fortune_teller.R
+     + This file indicates the api which returns a fortune cookie fortune upon query.
+  * subset_data.R 
+      + This file indicates an api which subsets a provided dataset by returning the indicated rows.
+  * init_fortune.R
+      + The running of this file will launch the fortune_teller api.
+  * init_subset.R
+      + The running of this file will launch the subset_data api.
+  * api_queries.Rmd
+      + This file has code snippets which will perform the api queries for the prompts detailed in the repository description. 
 # Running Instructions
 To run this, first open file1 , file2, file3 in separate R sessions. Run file1, file2 to initalize the apis on local ports 8000 and 8001.  By running file three AFTER you have initialized the two api's, it is possible to query the apis.
 
