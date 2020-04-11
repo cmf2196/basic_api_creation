@@ -1,0 +1,52 @@
+---
+title: "Basic Api Creation"
+author: "Connor Finn"
+date: "4/11/2020"
+output:
+  html_document:
+    df_print: paged
+
+---
+
+
+
+```{r package_data ,  message=FALSE , warning=FALSE}
+library(tidyverse)
+library (plumber)
+library(httr)
+
+```
+
+
+To complete this assingment, it is necessary to run in separate R sessions: <dir>
+  * init_subset.R
+  * init_fortune.R
+
+
+# 1. Create a plumber api with an endpoint method resource named "fortunecookie".  The API should take query parameters signifying an end-user's first name and last name.  It should then return text that says "Hi first name + last name.  Your fortune is...".  It should then return a fortune webscraped from the fortune cookie text from this [webpage](http://www.fortunecookiemessage.com/).
+
+In this api, we made a get method in conjunction with the endpoint method resource 'fortunecookie'. To test it's functionality, we can observe below.
+```{r my_fortune  }
+test <- GET("http://localhost:8001/fortunecookie", query = list(first_name= "Connor" , last_name = "Finn"))
+
+content(test)
+```
+
+Also note that the first_name , last_name attributes default to John Doe. 
+```{r jd_fortune  }
+test <- GET("http://localhost:8001/fortunecookie")
+
+content(test)
+```
+
+# 2. Create a plumber api with an endpoint method resource named "subsetdata".  The api should use the post method to receive data.  Users should be able to post values of particular variables of the dataset to the api.  The api should then take the values the user posts and return data filtered to a subset of rows in the dataset that the end-user requests.  USE the iris dataset to build your api.  
+
+This api call takes in a dataset (here we use IRIS), and a vector of row indices you would like to return. The result is a list of these rows as elements. 
+```{r subset  }
+library(datasets)
+data(iris)
+test<-POST("http://localhost:8000/subsetdata",  body = list(data = iris , rows = c(2 , 3 )), 
+           encode = "json") 
+content(test)
+```
+
