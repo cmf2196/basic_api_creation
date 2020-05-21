@@ -19,7 +19,7 @@ This is an assignment for my Columbia Univeristy Graduate course, Modern Data St
   * api_queries.Rmd
       + This file has code snippets which will perform the api queries for the prompts detailed in the repository description. 
 # Running Instructions
-To run this, first open file1 , file2, file3 in separate R sessions. Run file1, file2 to initalize the apis on local ports 8000 and 8001.  By running file three AFTER you have initialized the two api's, it is possible to query the apis.
+To run this, first open init_fortune.R , init_subset.R, api_queries.R in separate R sessions. Run init_fortune.R , init_subset.R, to initalize the apis on local ports 8000 and 8001.  By running api_queries.R AFTER you have initialized the two api's, it is possible to query the apis.
 
 # Achknowledgement
 This course is instruced by Dr. Micheal Parrott. A big thank you to him for his guidance with this project. 
